@@ -1,81 +1,104 @@
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    
-    <!--  Meta  -->
-    <meta charset="UTF-8" />
-    <title>Tribute Page</title>
-    
-    <!--  Styles  -->
-    <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
-
-    <h1 id="title"> 
-    This is the title of the survey form </h1>
-
-    <p id="description"> 
-    This is an in-depth description of the survey form 
-    </p>
-
-    <form id="survey-form"> 
-    <br />
-      <label id="name-label">
-        Enter your name below
-      </label>
-      <input id="name" placeholder="Name" required/>
-    <br />
-      <label id="email-label">
-        Enter your email below
-      </label>
-      <input id="email" type="email" placeholder="Email" required/>
-    <br />
-      <label id="number-label">
-        Enter a number between 1 and 10 below
-      </label>
-      <input id="number" type="number" min="1" max="10" placeholder="1-10"/>
-    <br />
-      <h3 id="meal-label">
-        How many meals do you eat per day?
-      </h3>
-      <select id="dropdown">
-        <option value="your value">1</option>
-        <option value="your value">2</option>
-        <option value="your value">3</option>
-        <option value="your value">4</option>
-        <option value="your value">5+</option>
-      </select>
-    <br />
-      <h3 id="gym-label">
-        How many times per week do you attend the gym
-      </h3>
-      <div><input type="radio" name="gym-freq" value="1-2" />1-2</div>
-        <div><input type="radio" name="gym-freq" value="3-4" />3-4</div>
-        <div><input type="radio" name="gym-freq" value="5-6" />5-6</div>
-        <div><input type="radio" name="gym-freq" value="6+" />6+</div>
+<h1 id="title">Survey Form</h1>
+<div id="form-outer">
+  <p id="description">
+    Help us by answering a quick survey!
+  </p>
+  <form id="survey-form" >
+    <div class="rowTab">
+      <div class="labels">
+        <label id="name-label" for="name">* Name: </label>
       </div>
-    <br />
-      <h3 id="problems-label">
-        Have you experienced any of the following problems in the past 6-12 months?
-      </h3>
-        <div>
-          Cardiovascualor problems<input type="checkbox" name="fields[YOUR_FORM_FIELD]" value="your value"/>
-          Respiratory problems <input type="checkbox" name="fields[YOUR_FORM_FIELD]" value="your value" />
-          Depression/Anxiety<input type="checkbox" name="fields[YOUR_FORM_FIELD]" value="your value"/>
-        </div>
-          Abusive treatment<input type="checkbox" name="fields[YOUR_FORM_FIELD]" value="your value"/>
-          Poor grades<input type="checkbox" name="fields[YOUR_FORM_FIELD]" value="your value"/>
-    <br />
-      <h3 id="name-label">
-        If you have any additional comments, please leave them below
-      </h3>
-      <textarea rows="4" cols="65" placeholder="Additional comments">
-      </textarea>
-      <br />
-    <button type="submit" id="submit" value="Submit">Submit</button>
-    </form>
-
-  </body>
-</html>
+      <div class="rightTab">
+        <input autofocus type="text" name="name" id="name" class="input-field" placeholder="Enter your name" required>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label id="email-label" for="email">* Email: </label>
+      </div>
+      <div class="rightTab">
+        <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your Email">
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label id="number-label" for="age">* Age: </label>
+      </div>
+      <div class="rightTab">
+        <input type="number" name="age" id="number" min="1" max="125" class="input-field" placeholder="Age">
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="currentPos">Which option best describes your current role?</label>
+      </div>
+      <div class="rightTab">
+        <select id="dropdown" name="currentPos" class="dropdown">
+      <option disabled value>Select an option</option>
+      <option  value="student">Student</option>
+      <option value="job">Full Time Job</option>
+      <option value="learner">Full Time Learner</option>
+      <option value="preferNo">Prefer not to say</option>
+      <option value="other">Other</option>
+    </select>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="userRating">* How likely is that you would recommend going to the gym on at least a weekly basis?</label>
+      </div>
+      <div class="rightTab">
+        <ul style="list-style: none;">
+          <li class="radio"><label>Definitely<input name="radio-buttons" value="1"  type="radio" class="userRatings" ></label></li>
+          <li class="radio"><label>Maybe<input name="radio-buttons" value="2"  type="radio" class="userRatings" ></label></li>
+          <li class="radio"><label>Not sure<input name="radio-buttons" value="3"  type="radio" class="userRatings" ></label></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="most-like">What do you like most about the gym </label>
+      </div>
+      <div class="rightTab">
+        <select id="most-like" name="mostLike" class="dropdown">
+      <option disabled selected value>Select an option</option>
+      <option value="challenges">Makes me look good</option>
+      <option value="projects">Makes me feel good</option>
+      <option value="community">Helps clear my head</option>
+      <option value="openSource">All three</option>
+    </select>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="preferences">Things that make going to the gym easier<br>(Check all that apply): </label>
+      </div>
+      <div class="rightTab">
+        <ul id="preferences" style="list-style: none;">
+          <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">Having caffeine pre workout</label></li>
+          <li class="checkbox"><input name="prefer" value="2" type="checkbox" class="userRatings">Quiet gym</li>
+          <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">Busy gym</label></li>
+          <li class="checkbox"><label><input name="prefer" value="4" type="checkbox" class="userRatings">Having a PT</label></li>
+          <li class="checkbox"><label><input name="prefer" value="5" type="checkbox" class="userRatings">Going with a friend</label></li>
+          <li class="checkbox"><label><input name="prefer" value="6" type="checkbox" class="userRatings">Having load intense music</label></li>
+          <li class="checkbox"><label><input name="prefer" value="7" type="checkbox" class="userRatings">Earphones</label></li>
+          <li class="checkbox"><label><input name="prefer" value="8" type="checkbox" class="userRatings">A workout plan</label></li>
+          <li class="checkbox"><label><input name="prefer" value="9" type="checkbox" class="userRatings">A good diet</label></li>
+          <li class="checkbox"><label><input name="prefer" value="10" type="checkbox" class="userRatings">A wide variety of equipment</label></li>
+          <li class="checkbox"><label><input name="prefer" value="10" type="checkbox" class="userRatings">Having a gym that is nearby</label></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="comments">Any other Comments or Suggestions on going to the gym?</label>
+      </div>
+      <div class="rightTab">
+        <textarea id="comments" class="input-field" style="height:50px;resize:vertical;" name="comment" placeholder="Enter your comment here..."></textarea>
+      </div>
+    </div>
+    <button id="submit" type="submit">Submit</button>
+  </form>
+</div>
